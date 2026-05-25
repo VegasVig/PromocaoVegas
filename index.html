@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vegas Vigilância & Segurança – Promoção Copa do Mundo</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&family=Barlow+Condensed:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --gold: #FFD700;
+      --gold2: #FFA500;
+      --green: #009c3b;
+      --blue: #002776;
+      --dark: #030a0e;
+      --darker: #010508;
+      --silver: #c0c0c0;
+      --silver2: #e8e8e8;
+      --accent: #00e5ff;
+      --red: #ff3131;
+      --white: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--darker);
+      font-family: 'Barlow Condensed', sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── STARS BG ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 10% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 50%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+        radial-gradient(600px at 50% 0%, rgba(0, 39, 118, 0.25) 0%, transparent 70%),
+        radial-gradient(600px at 80% 100%, rgba(0, 156, 59, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 39, 118, 0.08) 0%, transparent 40%, rgba(0, 156, 59, 0.06) 100%);
+      z-index: -1;
+    }
+
+    /* Hex grid decorative */
+    .hex-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-2.31L54 50.5V17.5L28 2.31 2 17.5v33L28 63.69z' fill='none' stroke='rgba(255,215,0,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .logo-wrap {
+      animation: floatUp 1s ease both;
+    }
+
+    .logo-wrap img {
+      width: 170px;
+      filter: drop-shadow(0 0 30px rgba(192, 192, 192, 0.5));
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.4));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.7));
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .copa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 18px 0 10px;
+      animation: floatUp 1s 0.2s ease both;
+      box-shadow: 0 0 20px rgba(0, 156, 59, 0.3);
+    }
+
+    .copa-badge::before {
+      content: '⚽';
+      font-size: 1rem;
+    }
+
+    .copa-badge::after {
+      content: '🏆';
+      font-size: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--silver2) 50%, var(--gold2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: floatUp 1s 0.3s ease both;
+      text-shadow: none;
+    }
+
+    .hero-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      color: var(--green);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 8px 0 20px;
+      animation: floatUp 1s 0.4s ease both;
+    }
+
+    .hexa-tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      animation: floatUp 1s 0.5s ease both;
+    }
+
+    .hexa-tagline span {
+      color: var(--green);
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin: 16px auto 30px;
+      animation: floatUp 1s 0.6s ease both;
+      font-weight: 300;
+    }
+
+    .flags {
+      font-size: 2rem;
+      letter-spacing: 6px;
+      animation: floatUp 1s 0.7s ease both;
+      margin-bottom: 10px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--green), var(--blue), var(--gold), transparent);
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SECTION ── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    .section-sub {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+    }
+
+    /* ── CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.4));
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--blue));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.15), 0 0 30px rgba(0, 156, 59, 0.1);
+      border-color: rgba(255, 215, 0, 0.4);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      display: block;
+    }
+
+    .card-body {
+      padding: 20px 22px 24px;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .tag-interna {
+      background: rgba(0, 156, 59, 0.2);
+      color: var(--green);
+      border: 1px solid rgba(0, 156, 59, 0.4);
+    }
+
+    .tag-externa {
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+    }
+
+    .tag-sistema {
+      background: rgba(0, 39, 118, 0.4);
+      color: #7aadff;
+      border: 1px solid rgba(0, 39, 118, 0.8);
+    }
+
+    .tag-alarme {
+      background: rgba(255, 49, 49, 0.15);
+      color: #ff7a7a;
+      border: 1px solid rgba(255, 49, 49, 0.3);
+    }
+
+    .card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .price small {
+      font-size: 0.85rem;
+      color: rgba(255, 215, 0, 0.7);
+      font-weight: 400;
+    }
+
+    /* ── SISTEMA TABLE ── */
+    .sistema-plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .plan-item {
+      background: rgba(0, 39, 118, 0.2);
+      border: 1px solid rgba(0, 39, 118, 0.5);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      transition: background 0.3s, border-color 0.3s;
+      cursor: default;
+    }
+
+    .plan-item:hover {
+      background: rgba(0, 39, 118, 0.4);
+      border-color: var(--gold);
+    }
+
+    .plan-item .cams {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+    }
+
+    .plan-item .plan-price {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .plan-item .plan-label {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── ALARME EXTRA ── */
+    .alarme-note {
+      background: rgba(255, 49, 49, 0.08);
+      border: 1px solid rgba(255, 49, 49, 0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      margin-top: 14px;
+    }
+
+    .alarme-note strong {
+      color: #ff9a9a;
+    }
+
+    /* ── CABEAMENTO INFO ── */
+    .cabo-section {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cabo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .cabo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cabo-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .cabo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .cabo-card h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .cabo-card .metro-price {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .cabo-card .metro-price small {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .cabo-card p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .cabo-aviso {
+      background: rgba(255, 165, 0, 0.08);
+      border: 1px solid rgba(255, 165, 0, 0.3);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cabo-aviso strong {
+      color: var(--gold2);
+    }
+
+    /* ── FORM / ORÇAMENTO ── */
+    .form-wrap {
+      max-width: 750px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.5));
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .form-wrap h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-wrap .form-sub {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .checkboxes h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 215, 0, 0.06);
+      border-color: rgba(255, 215, 0, 0.3);
+    }
+
+    .check-item input[type="checkbox"] {
+      display: none;
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      border-radius: 5px;
+      flex-shrink: 0;
+      position: relative;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .check-item input:checked+.check-box {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .check-item input:checked+.check-box::after {
+      content: '✓';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .check-label {
+      flex: 1;
+    }
+
+    .check-label .cl-name {
+      display: block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .check-label .cl-price {
+      display: block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    /* Sensor counter */
+    .sensor-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 49, 49, 0.05);
+      border: 1px solid rgba(255, 49, 49, 0.2);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: -16px;
+      margin-bottom: 28px;
+    }
+
+    .sensor-row label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      flex: 1;
+    }
+
+    .sensor-row label strong {
+      color: #ff9a9a;
+    }
+
+    .counter-btn {
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 49, 49, 0.2);
+      border: 1px solid rgba(255, 49, 49, 0.4);
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .counter-btn:hover {
+      background: rgba(255, 49, 49, 0.4);
+    }
+
+    .counter-val {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ff9a9a;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    /* Fields */
+    .fields-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .fields-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-group label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .field-group input,
+    .field-group textarea,
+    .field-group select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .field-group input:focus,
+    .field-group textarea:focus,
+    .field-group select:focus {
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, 0.04);
+    }
+
+    .field-group select option {
+      background: #111;
+      color: #fff;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Total */
+    .total-bar {
+      background: rgba(255, 215, 0, 0.07);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .total-bar .tl {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .total-bar .tv {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Submit */
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-whatsapp svg {
+      flex-shrink: 0;
+    }
+
+    /* ── COPA SECTION ── */
+    .copa-sec {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(ellipse at center, rgba(0, 156, 59, 0.08) 0%, transparent 70%);
+    }
+
+    .copa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 30px auto 0;
+    }
+
+    .copa-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 156, 59, 0.2);
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .copa-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .copa-item h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .copa-item p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255, 215, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer img {
+      width: 80px;
+      opacity: 0.7;
+      margin-bottom: 14px;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1.8;
+      letter-spacing: 1px;
+    }
+
+    footer .footer-gold {
+      color: var(--gold);
+    }
+
+    /* ── SCROLL ANIM ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(100vw);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-wrap {
+        padding: 24px 16px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <span class="ticker-text">
+      ⚽ PROMOÇÃO COPA DO MUNDO 2026 ⚽ &nbsp;&nbsp; 🇧🇷 VEGAS VIGILÂNCIA &amp; SEGURANÇA — RUMO AO HEXA! 🏆 &nbsp;&nbsp;
+      CÂMERAS · ALARMES · MONITORAMENTO &nbsp;&nbsp; ⚽ PROMOÇÃO COPA DO MUNDO 2026 ⚽ &nbsp;&nbsp; 🇧🇷 VEGAS VIGILÂNCIA
+      &amp; SEGURANÇA — RUMO AO HEXA! 🏆
+    </span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hex-grid"></div>
+
+    <div class="logo-wrap">
+      <img src="assets/vegaslogo1.jpg" alt="Vegas Vigilância e Segurança">
+    </div>
+
+    <div class="copa-badge">PROMOÇÃO ESPECIAL COPA DO MUNDO 2026</div>
+
+    <h1>Vegas Vigilância<br>&amp; Segurança</h1>
+    <p class="hero-sub">Proteção de Campeão para sua Casa e Empresa</p>
+
+    <div class="hexa-tagline">🏆 RUMO AO <span>HEXA!</span> 🏆</div>
+
+    <p class="hero-desc">
+      Assim como o Brasil vai em busca do hexacampeonato, nós estamos em busca de proteger você com tecnologia de ponta.
+      Câmeras inteligentes, alarmes modernos e monitoramento 24h — porque <strong>segurança também é um jogo de
+        time.</strong>
+    </p>
+
+    <div class="flags">🇧🇷 ⚽ 🏆 ⚽ 🇧🇷</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COPA SECTION -->
+  <section class="copa-sec reveal">
+    <div class="section-title">⚽ Copa do Mundo <span>2026</span> ⚽</div>
+    <div class="section-sub">Monitore os jogos com tranquilidade — sua casa estará protegida</div>
+
+    <div class="copa-grid">
+      <div class="copa-item">
+        <div class="copa-emoji">📱</div>
+        <h4>Assista com Paz</h4>
+        <p>Monitore sua propriedade pelo celular enquanto torce para o Brasil</p>
+      </div>
+      <div class="copa-item">
+        <div class="copa-emoji">🛡️</div>
+        <h4>Defesa de Campeão</h4>
+        <p>Alarmes inteligentes que defendem sua casa como zagueiro do Brasil</p>
+      </div>
+      <div class="copa-item">
+        <div class="copa-emoji">👁️</div>
+        <h4>Olho no Lance</h4>
+        <p>Câmeras HD que não perdem nenhum movimento, dentro ou fora</p>
+      </div>
+      <div class="copa-item">
+        <div class="copa-emoji">🌙</div>
+        <h4>Visão Noturna</h4>
+        <p>Segurança total 24h, mesmo durante os jogos noturnos da Copa</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRODUTOS -->
+  <section>
+    <div class="section-title reveal">Nossos <span>Produtos</span></div>
+    <div class="section-sub reveal">Soluções completas de segurança eletrônica</div>
+
+    <div class="cards-grid">
+
+      <!-- CÂMERA INTERNA -->
+      <div class="card reveal">
+        <img class="card-img" src="assets/tapoc200.jpg" alt="Câmera Interna Tapo C200">
+        <div class="card-body">
+          <span class="card-tag tag-interna">📷 Câmera Interna</span>
+          <h3>Tapo C200</h3>
+          <p>Câmera Wi-Fi pan/tilt para ambientes internos. Visão 360°, detecção de movimento, visão noturna e controle
+            via app.</p>
+          <div class="price-box">
+            <span class="price-label">mensalidade a partir de</span>
+          </div>
+          <div class="price">R$ 39<small>,90/mês</small></div>
+        </div>
+      </div>
+
+      <!-- CÂMERA EXTERNA -->
+      <div class="card reveal">
+        <img class="card-img" src="assets/tapoc500.jpg" alt="Câmera Externa Tapo C500">
+        <div class="card-body">
+          <span class="card-tag tag-externa">🌐 Câmera Externa</span>
+          <h3>Tapo C500</h3>
+          <p>Câmera outdoor pan/tilt resistente a intempéries. Visão colorida noturna, detecção de pessoa e sirene
+            integrada.</p>
+          <div class="price-box">
+            <span class="price-label">mensalidade a partir de</span>
+          </div>
+          <div class="price">R$ 59<small>,90/mês</small></div>
+        </div>
+      </div>
+
+      <!-- SISTEMA DE CÂMERAS -->
+      <div class="card reveal">
+        <img class="card-img" src="assets/sistema_cameras.jpg" alt="Sistema de Câmeras CFTV">
+        <div class="card-body">
+          <span class="card-tag tag-sistema">🎥 Sistema CFTV</span>
+          <h3>Kit Câmeras</h3>
+          <p>Kits completos com DVR Hikvision, câmeras bullet e dome HD. Ideal para residências, comércios e empresas.
+          </p>
+
+          <div class="sistema-plans">
+            <div class="plan-item">
+              <span class="cams">4</span>
+              <span class="plan-label">câmeras</span>
+              <span class="plan-price">R$189,90</span>
+            </div>
+            <div class="plan-item">
+              <span class="cams">8</span>
+              <span class="plan-label">câmeras</span>
+              <span class="plan-price">R$289,90</span>
+            </div>
+            <div class="plan-item">
+              <span class="cams">16</span>
+              <span class="plan-label">câmeras</span>
+              <span class="plan-price">R$389,90</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KIT ALARME -->
+      <div class="card reveal">
+        <img class="card-img" src="assets/alarme.jpg" alt="Kit Alarme Intelbras">
+        <div class="card-body">
+          <span class="card-tag tag-alarme">🚨 Kit Alarme</span>
+          <h3>Alarme Intelbras</h3>
+          <p>Kit completo com central de alarme, sensores, teclado, bateria e sirene. Marca referência nacional em
+            segurança eletrônica.</p>
+          <div class="price">R$ 189<small>,90</small></div>
+          <div class="price-box"><span class="price-label">Kit com 3 sensores inclusos</span></div>
+
+          <div class="alarme-note">
+            🔌 <strong>Sensor extra:</strong> + R$ 10,00/mês por cada sensor adicional além dos 3 já inclusos no plano.
+          </div>
+        </div>
+      </div>
+
+      
+  <!-- RASTREADOR VEICULAR -->
+  <div class="card reveal">
+    <img class="card-img" src="assets/rastreador.jpg" alt="Rastreador Veicular">
+    <div class="card-body">
+      <span class="card-tag tag-sistema">📍 Rastreador Veicular</span>
+      <h3>Rastreamento GPS</h3>
+      <p>
+        Rastreamento em tempo real para carros, motos, caminhões e embarcações.
+        Acompanhe localização pelo celular com tecnologia de monitoramento 24h.
+      </p>
+
+      <div class="price-box">
+        <span class="price-label">mensalidade a partir de</span>
+      </div>
+
+      <div class="price">R$ 79<small>,90/mês</small></div>
+
+      <div class="alarme-note">
+        🚛 <strong>Desconto especial para frotas.</strong><br>
+        ⚠️ Instalação de rastreador disponível apenas para <strong>Pessoa Jurídica (CNPJ)</strong>.
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+
+  <!-- CABEAMENTO -->
+  <section>
+    <div class="section-title reveal">Cabeamento <span>e Instalação</span></div>
+    <div class="section-sub reveal">Cobrado separadamente 5 dias após a instalação</div>
+
+    <div class="cabo-section">
+      <div class="cabo-grid reveal">
+        <div class="cabo-card">
+          <div class="cabo-icon">📹</div>
+          <h4>Cabo de Câmera</h4>
+          <div class="metro-price">R$ 3,71 <small>/ metro</small></div>
+          <p>Cabo coaxial ou UTP para sistemas de câmeras CFTV e IP</p>
+        </div>
+        <div class="cabo-card">
+          <div class="cabo-icon">🚨</div>
+          <h4>Cabo de Alarme</h4>
+          <div class="metro-price">R$ 1,22 <small>/ metro</small></div>
+          <p>Cabo blindado para instalação de sensores e centrais de alarme</p>
+        </div>
+      </div>
+
+      <div class="cabo-aviso reveal">
+        ⚠️ <strong>Atenção:</strong> O valor do cabeamento é medido conforme a metragem real utilizada na instalação e
+        será cobrado separadamente <strong>5 dias após a conclusão do serviço.</strong>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FORMULÁRIO DE ORÇAMENTO -->
+  <section id="orcamento">
+    <div class="section-title reveal">Solicitar <span>Orçamento</span></div>
+    <div class="section-sub reveal">Selecione os produtos desejados e envie pelo WhatsApp</div>
+
+    <div class="form-wrap reveal">
+      <h2>Monte seu Plano</h2>
+      <p class="form-sub">Escolha os itens e envie direto para nós</p>
+
+      <div class="checkboxes">
+
+        <h3>📷 Câmeras Inteligentes</h3>
+        <div class="check-grid">
+          <label class="check-item">
+            <input type="checkbox" id="c200" onchange="calcTotal()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Câmera Interna C200</span>
+              <span class="cl-price">R$ 39,90/mês</span>
+            </span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="c500" onchange="calcTotal()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Câmera Externa C500</span>
+              <span class="cl-price">R$ 59,90/mês</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>🎥 Sistema CFTV</h3>
+        <div class="check-grid">
+          <label class="check-item">
+            <input type="checkbox" id="kit4" onchange="calcTotal()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Kit 4 Câmeras</span>
+              <span class="cl-price">R$ 189,90</span>
+            </span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="kit8" onchange="calcTotal()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Kit 8 Câmeras</span>
+              <span class="cl-price">R$ 289,90</span>
+            </span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="kit16" onchange="calcTotal()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Kit 16 Câmeras</span>
+              <span class="cl-price">R$ 389,90</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>🚨 Kit Alarme</h3>
+        <div class="check-grid">
+          <label class="check-item">
+            <input type="checkbox" id="alarme" onchange="toggleSensor()">
+            <div class="check-box"></div>
+            <span class="check-label">
+              <span class="cl-name">Kit Alarme Intelbras</span>
+              <span class="cl-price">R$ 189,90 (3 sensores)</span>
+            </span>
+          </label>
+        </div>
+
+        <!-- Sensor extra -->
+        <div class="sensor-row" id="sensorRow" style="display:none;">
+          <label>Sensores extras <strong>(+ R$10,00/mês cada)</strong></label>
+          <button class="counter-btn" onclick="changeSensor(-1)" type="button">−</button>
+          <span class="counter-val" id="sensorCount">0</span>
+          <button class="counter-btn" onclick="changeSensor(1)" type="button">+</button>
+        </div>
+
+          <h3>📍 Rastreamento Veicular</h3>
+
+      <div class="check-grid">
+        <label class="check-item">
+          <input type="checkbox" id="rastreador" onchange="calcTotal()">
+          <div class="check-box"></div>
+
+          <span class="check-label">
+            <span class="cl-name">Rastreador Veicular GPS</span>
+            <span class="cl-price">R$ 79,90/mês</span>
+          </span>
+        </label>
+      </div>
+
+      </div>
+
+      <!-- Dados -->
+      <div class="fields-grid">
+        <div class="field-group">
+          <label>Seu nome</label>
+          <input type="text" id="nome" placeholder="Nome completo">
+        </div>
+        <div class="field-group">
+          <label>Seu WhatsApp</label>
+          <input type="tel" id="wpp" placeholder="(24) 9 9999-9999">
+        </div>
+        <div class="field-group">
+          <label>Cidade / Bairro</label>
+          <input type="text" id="cidade" placeholder="Ex: Volta Redonda – Bairro X">
+        </div>
+        <div class="field-group">
+          <label>Tipo de imóvel</label>
+          <select id="imovel">
+            <option value="">Selecione…</option>
+            <option>Residência</option>
+            <option>Comércio</option>
+            <option>Empresa / Escritório</option>
+            <option>Condomínio</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field-group field-full">
+          <label>Observações adicionais</label>
+          <textarea id="obs" placeholder="Detalhes sobre o ambiente, número de cômodos, dúvidas, etc."></textarea>
+        </div>
+      </div>
+
+    
+
+      <!-- Total estimado -->
+      <div class="total-bar">
+        <span class="tl">⚡ Total estimado</span>
+        <span class="tv" id="totalDisplay">R$ 0,00</span>
+      </div>
+
+      <!-- Botão WhatsApp -->
+      <a class="btn-whatsapp" id="btnWpp" href="#" onclick="enviarWpp(event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        ENVIAR ORÇAMENTO VIA WHATSAPP
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="assets/vegaslogo1.jpg" alt="Vegas Vigilância">
+    <p>
+      <span class="footer-gold">Vegas Vigilância &amp; Segurança</span><br>
+      🇧🇷 Rumo ao Hexa! Copa do Mundo 2026 🏆<br>
+      📱 WhatsApp: (24) 992321709<br>
+      <small>© 2026 Vegas Vigilância e Segurança. Todos os direitos reservados.</small>
+    </p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => obs.observe(r));
+
+    // Prices
+    const prices = {
+      c200: 39.90,
+      c500: 59.90,
+      kit4: 189.90,
+      kit8: 289.90,
+      kit16: 389.90,
+      alarme: 189.90,
+      rastreador: 79.90
+    };
+    let extraSensors = 0;
+
+    function calcTotal() {
+      let total = 0;
+      Object.keys(prices).forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.checked) total += prices[id];
+      });
+      total += extraSensors * 10;
+      document.getElementById('totalDisplay').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    }
+
+    function toggleSensor() {
+      const checked = document.getElementById('alarme').checked;
+      document.getElementById('sensorRow').style.display = checked ? 'flex' : 'none';
+      if (!checked) { extraSensors = 0; document.getElementById('sensorCount').textContent = 0; }
+      calcTotal();
+    }
+
+    function changeSensor(d) {
+      extraSensors = Math.max(0, extraSensors + d);
+      document.getElementById('sensorCount').textContent = extraSensors;
+      calcTotal();
+    }
+
+    function enviarWpp(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim() || 'Não informado';
+      const wpp = document.getElementById('wpp').value.trim() || 'Não informado';
+      const cidade = document.getElementById('cidade').value.trim() || 'Não informado';
+      const imovel = document.getElementById('imovel').value || 'Não informado';
+      const obs = document.getElementById('obs').value.trim() || '—';
+
+      const selecionados = [];
+      if (document.getElementById('c200').checked) selecionados.push('📷 Câmera Interna Tapo C200 – R$ 39,90/mês');
+      if (document.getElementById('c500').checked) selecionados.push('🌐 Câmera Externa Tapo C500 – R$ 59,90/mês');
+      if (document.getElementById('kit4').checked) selecionados.push('🎥 Kit 4 Câmeras – R$ 189,90');
+      if (document.getElementById('kit8').checked) selecionados.push('🎥 Kit 8 Câmeras – R$ 289,90');
+      if (document.getElementById('kit16').checked) selecionados.push('🎥 Kit 16 Câmeras – R$ 389,90');
+      if (document.getElementById('alarme').checked) {
+        let txt = '🚨 Kit Alarme Intelbras – R$ 189,90 (3 sensores)';
+        if (extraSensors > 0) txt += ` + ${extraSensors} sensor(es) extra (+R$${(extraSensors * 10).toFixed(2)}/mês)`;
+        if (document.getElementById('rastreador').checked)
+          selecionados.push('📍 Rastreador Veicular GPS – R$ 79,90/mês');
+        selecionados.push(txt);
+      }
+
+      const totalEl = document.getElementById('totalDisplay').textContent;
+
+      let msg = `🏆 *PROMOÇÃO COPA DO MUNDO 2026*\n`;
+      msg += `🇧🇷 *Vegas Vigilância – RUMO AO HEXA!*\n\n`;
+      msg += `👤 *Nome:* ${nome}\n`;
+      msg += `📱 *WhatsApp:* ${wpp}\n`;
+      msg += `📍 *Cidade/Bairro:* ${cidade}\n`;
+      msg += `🏠 *Tipo de imóvel:* ${imovel}\n\n`;
+      msg += `*Produtos selecionados:*\n`;
+      msg += `\n🚛 _Desconto especial para frotas disponíveis sob consulta._`;
+      msg += `\n⚠️ _Rastreador disponível apenas para Pessoa Jurídica (CNPJ)._`;
+      if (selecionados.length > 0) {
+        selecionados.forEach(s => msg += `  ✅ ${s}\n`);
+      } else {
+        msg += `  ⚠️ Nenhum produto selecionado ainda\n`;
+      }
+      msg += `\n💰 *Total estimado: ${totalEl}*\n`;
+      msg += `\n📋 *Observações:* ${obs}\n\n`;
+      msg += `⚠️ _Lembrando que o cabeamento será cobrado separadamente 5 dias após a instalação: cabo de câmera R$3,71/m e cabo de alarme R$1,22/m._\n\n`;
+      msg += `⚽ _Quero aproveitar a promoção da Copa do Mundo!_ 🏆`;
+
+      const url = 'https://wa.me/5524992321709?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+
+</html>
